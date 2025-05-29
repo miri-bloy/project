@@ -14,15 +14,16 @@ import Confirmation from '../cart/Confirmation';
 
 
 
-const AppRoutes = () => {
+const AppRoutes = ({allProduct,setAllProduct,addProductToCart}) => {
   return (
     <div>
       <Routes>
         <Route path='/homePage' element={<HomePage />} />
         <Route path='/about' element={<About />} />
         <Route path='/conect' element={<Contact />} />
-        <Route path='/products' element={<Products/> } />
-        <Route path='/productDetails' element={<ProductDetails/>} />
+        <Route path='/products' element={<Products allProduct={allProduct} setAllProduct={setAllProduct} addProductToCart={addProductToCart}/> } />
+        <Route path='/productDetails/:productId' element={
+          <ProductDetails allProduct={allProduct} addProductToCart={addProductToCart}/>}/>
         <Route path='/shoppingCart' element={<ShoppingCart />} >
           <Route path='myOrder' element={<MyOrder/>} />
           <Route path='shippingDetails' element={<ShippingDetails/>} />
