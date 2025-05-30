@@ -1,8 +1,16 @@
 import React from 'react'
+import ShoppingCartItem from './ShoppingCartItem';
 
-const MyOrder = () => {
+
+const MyOrder = ({ cartProducts, removeProductFromCart, plus, minus }) => {
+  console.log(cartProducts);
   return (
-    <div>MyOrder</div>
+    <div>
+      <h3>my order</h3>
+      {cartProducts.map(p=>
+        <ShoppingCartItem productToShow={p} removeProductFromCart={removeProductFromCart} plus={plus} minus={minus}/>
+      )}
+    </div>
   )
 }
 
