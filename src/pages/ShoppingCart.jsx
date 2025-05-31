@@ -7,9 +7,26 @@ import Confirmation from '../components/cart/Confirmation';
 
 const ShoppingCart = ({ cartProducts, removeProductFromCart, plus, minus }) => {
 
+  const [shippingData, setShippingData]=useState({
+    firstName: '',
+    lastName: '',
+    address: '',
+    building: '',
+    zipCode: '',
+    country: '',
+    city: '',
+  });
+
+  const updateData=(type, value)=>{
+    setShippingData(prevData => ({
+      ...prevData,
+      [type]: value,
+    }))
+  }
+
   const steps = [
     { id: 1, name: 'ההזמנה שלי', component: <MyOrder cartProducts={cartProducts} removeProductFromCart={removeProductFromCart} plus={plus} minus={minus}/> },
-    { id: 2, name: 'פרטי משלוח', component: <ShippingDetails /> },
+    { id: 2, name: 'פרטי משלוח', component: <ShippingDetails shippingData={shippingData} updateData={updateData}/> },
     { id: 3, name: 'פרטי תשלום', component: <PaymentDetails /> },
     { id: 4, name: 'אישור הזמנה', component: <Confirmation /> },
   ]
@@ -23,7 +40,6 @@ const ShoppingCart = ({ cartProducts, removeProductFromCart, plus, minus }) => {
   const stepForward=()=>{
     setCurrentStepIndex(current=>current+1);
   }
-
 
   return (
     <div>

@@ -3,13 +3,20 @@ import ShoppingCartItem from './ShoppingCartItem';
 
 
 const MyOrder = ({ cartProducts, removeProductFromCart, plus, minus }) => {
-  console.log(cartProducts);
+  let countItems = 0;
+  let sumPrice = 0;
+  cartProducts.forEach(p => {
+    countItems += p.quantity;
+    sumPrice += (p.price * p.quantity);
+  });
   return (
     <div>
       <h3>my order</h3>
       {cartProducts.map(p=>
         <ShoppingCartItem productToShow={p} removeProductFromCart={removeProductFromCart} plus={plus} minus={minus}/>
       )}
+      <p>כמות מוצרים: <b>{countItems}</b></p>
+      <p>סה"כ לתשלום: <b>{sumPrice}</b></p>
     </div>
   )
 }

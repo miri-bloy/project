@@ -7,7 +7,7 @@ import Navbar from './components/common/Navbar';
 function App() {
 
   const [allProduct, setAllProduct] = useState([
-    { id: 1, name: "x", img: "y", price: 0 }
+    { id: 1, name: "x", img: "y", price: 10 }
   ]);
 
   const [cartProducts, setCartProducts] = useState([]);
@@ -27,7 +27,7 @@ function App() {
     else {
       setCartProducts(prevCartItems => [...prevCartItems, { ...productToAdd, quantity: 1 }]);
     }
-    alert("המוצר " + productToAdd.name + " הוסר בהצלחה");
+    alert("המוצר " + productToAdd.name + " נוסף בהצלחה");
   }
 
   const removeProductFromCart = (productToRemove) => {

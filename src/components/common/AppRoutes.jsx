@@ -22,6 +22,7 @@ const AppRoutes = ({allProduct,setAllProduct,cartProducts,addProductToCart,remov
           <ProductDetails allProduct={allProduct} addProductToCart={addProductToCart}/>}/>
         <Route path='/shoppingCart' element={<ShoppingCart cartProducts={cartProducts} removeProductFromCart={removeProductFromCart} plus={plus} minus={minus}/>} />
         <Route path='/logIn' element={<LogIn />} />
+        <Route path='/' element={<HomePage />} />
       </Routes>
     </div>
   )
