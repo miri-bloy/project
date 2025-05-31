@@ -2,13 +2,14 @@ import React from 'react'
 import ShoppingCartItem from './ShoppingCartItem';
 
 
-const MyOrder = ({ cartProducts, removeProductFromCart, plus, minus }) => {
+const MyOrder = ({ cartProducts, removeProductFromCart, plus, minus, setPrice }) => {
   let countItems = 0;
   let sumPrice = 0;
   cartProducts.forEach(p => {
     countItems += p.quantity;
     sumPrice += (p.price * p.quantity);
   });
+  setPrice(sumPrice);
   return (
     <div>
       <h3>my order</h3>

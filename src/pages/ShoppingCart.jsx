@@ -24,11 +24,15 @@ const ShoppingCart = ({ cartProducts, removeProductFromCart, plus, minus }) => {
     }))
   }
 
+  const [price, setPrice]=useState(0);
+
+  const [cardNumber, setCardNumber]=useState("1234");
+
   const steps = [
-    { id: 1, name: 'ההזמנה שלי', component: <MyOrder cartProducts={cartProducts} removeProductFromCart={removeProductFromCart} plus={plus} minus={minus}/> },
+    { id: 1, name: 'ההזמנה שלי', component: <MyOrder cartProducts={cartProducts} removeProductFromCart={removeProductFromCart} plus={plus} minus={minus} setPrice={setPrice}/> },
     { id: 2, name: 'פרטי משלוח', component: <ShippingDetails shippingData={shippingData} updateData={updateData}/> },
-    { id: 3, name: 'פרטי תשלום', component: <PaymentDetails /> },
-    { id: 4, name: 'אישור הזמנה', component: <Confirmation /> },
+    { id: 3, name: 'פרטי תשלום', component: <PaymentDetails setCardNumber={setCardNumber} price={price}/> },
+    { id: 4, name: 'אישור הזמנה', component: <Confirmation cardNumber={cardNumber} price={price} shippingData={shippingData}/> },
   ]
 
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
