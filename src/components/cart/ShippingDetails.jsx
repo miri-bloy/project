@@ -1,8 +1,6 @@
-import React from 'react'
-
 const ShippingDetails = ({shippingData,updateData}) => {
   return (
-    <div>
+     <div>
       <div class="form">
         <div>
           <span for="firstName">שם פרטי</span>

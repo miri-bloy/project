@@ -1,17 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import MyContex from '../context';
 
 const Contact = () => {
 
-  const [allMessage, setAllMessage] = useState([
-  ]);
+  const status = useContext(MyContex).status;
+  const user = useContext(MyContex).user;
+  const setUser = useContext(MyContex).setUser;
+  const allMessage=user.messages;
 
   const [newMessage, setNewMessage] = useState({
-    id: 0,
+    idMessage: 0,
     name: '',
     phone: '',
     email: '',
     message: '',
     date: '',
+    answerId: '',
     answer: '',
     answerDate: '',
   });
@@ -20,27 +24,33 @@ const Contact = () => {
     setNewMessage(prev => ({
       ...prev,
       [type]: value,
-    }))
+    }));
   };
 
   const SendMessage = (event) => {
     event.preventDefault();
     const now = new Date();
     const dateString = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear();
-    const id = 23100 + setAllMessage.length + 1;
+    const id = allMessage.length>0 
+    ? allMessage[allMessage.length-1].idMessage + 10 
+    : 23100 + 10;
     const fullMessage = {
       ...newMessage,
       date: dateString,
-      id: id,
+      idMessage: id,
     };
-    setAllMessage(prevMessages => [...prevMessages, fullMessage]);
+    setUser(prevUser => ({
+      ...prevUser,
+      messages: [...prevUser.messages, fullMessage] 
+    }));
     setNewMessage({
-      id: 0,
+      idMessage: 0,
       name: '',
       phone: '',
       email: '',
       message: '',
-      date: '',
+      date: '', 
+      answerId: '',
       answer: '',
       answerDate: '',
     });
@@ -67,8 +77,7 @@ const Contact = () => {
           <p> www.exemple.co.il</p>
         </div>
       </div>
-      <div>
-        <h2>למשתמשים לא רשומים:</h2>
+      {status != "loggedIn" ? <div>
         <h3>שליחת פניה </h3>
         <form>
           <div>
@@ -84,27 +93,30 @@ const Contact = () => {
           <button onClick={(e) => SendMessage(e)} type='button'>שלח</button>
         </form>
       </div>
-      <div>
-        <h2>למשתמשים רשומים:</h2>
-        <h3>שליחת פניה חדשה</h3>
-        <form>
-          <span>הודעה</span>
-          <textarea rows={7} cols={70} onChange={(e) => updateMessage("message", e.target.value)} value={newMessage.message} />
-          <button onClick={(e) => SendMessage(e)} type='button'>שלח</button>
-        </form>
-        {/*allMessage.length > 0 && */<div>
-          <h2>הפניות הקודמות שלי</h2>
-          {allMessage.map(p => <div>
-            <div>
-              הודעה מספר: <b>{p.id}</b>
-              מתאריך: <b>{p.date}</b>
-              שם: <b>{p.name}</b>
-              הודעה: <b>{p.message}</b>
-              תגובה: <b>{p.message}</b>
-            </div>
-          </div>)}
+        : <div>
+          <h3>שליחת פניה חדשה</h3>
+          <form>
+            <span>הודעה</span><br />
+            <textarea rows={7} cols={70} onChange={(e) => updateMessage("message", e.target.value)} value={newMessage.message} />
+            <button onClick={(e) => SendMessage(e)} type='button'>שלח</button>
+          </form>
+          <div>
+            <h2>הפניות הקודמות שלי</h2>
+            {allMessage.map(m => <div>
+              <div>
+                הודעה מספר: <b>{m.idMessage}</b>
+                מתאריך: <b>{m.date}</b>
+                שם: <b>{m.name}</b><br />
+                הודעה: <b>{m.message}</b>
+              </div>
+              {m.answer != "" && <div>
+                תגובה מספר: <b>{m.answerId}</b>
+                בתאריך: <b>{m.answerDate}</b>
+                הודעה: <b>{m.answer}</b>
+              </div>}
+            </div>)}
+          </div>
         </div>}
-      </div>
     </div>
   )
 }
