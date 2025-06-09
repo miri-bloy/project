@@ -8,7 +8,7 @@ const ProductDetails = ({allProduct, addProductToCart}) => {
 
     <div>
       <h3>{productToShow.name}</h3>
-      <img src={productToShow.img}/>
+      <img src={"/shirts/"+productToShow.img}/>
       <p>{productToShow.price}</p>
       <button onClick={(e)=>addProductToCart(e,productToShow)}>addProductToCart</button>
     </div>

@@ -10,7 +10,7 @@ const ProductCard = ({productToShow, addProductToCart}) => {
   return (
     <div className='product-card' onClick={()=>handleViewDetails(productToShow)} style={{backgroundColor: "red", padding: "20px"}}>
       <h3>{productToShow.name}</h3>
-      <img src={productToShow.img}/>
+      <img src={"/shirts/"+productToShow.img}/>
       <p>{productToShow.price}</p>
       <button onClick={(e)=>addProductToCart(e,productToShow)}>addProductToCart</button>
     </div>
