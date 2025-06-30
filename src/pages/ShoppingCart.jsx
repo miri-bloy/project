@@ -55,10 +55,14 @@ const ShoppingCart = ({ cartProducts, removeProductFromCart, plus, minus }) => {
 
   return (
     <div>
-      <nav>{steps.map(s => <span className={s === steps[currentStepIndex] ? "cart-item current" : "cart-item"} >{s.name}</span>)}</nav>
+      <nav id="nav">
+      <button onClick={() => stepBack()} disabled={steps[currentStepIndex].id === 1 || status != "loggedIn"}><i class="fa-solid fa-circle-chevron-right"></i></button>
+        {steps.map(s => <span className={s === steps[currentStepIndex] ? "cart-item current" : "cart-item"} >{s.name}</span>)}
+        <button onClick={() => stepForward()} disabled={steps[currentStepIndex].id === 4 || status != "loggedIn"}><i class="fa-solid fa-circle-chevron-left"></i></button>
+        </nav>
       <div>{steps[currentStepIndex].component}</div>
       {status == "loggedIn" ?
-        <div>
+        <div id='staps'>
           <button onClick={() => stepBack()} disabled={steps[currentStepIndex].id === 1}>הקודם</button>
           <button onClick={() => stepForward()} disabled={steps[currentStepIndex].id === 4}>הבא</button>
         </div>

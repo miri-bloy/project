@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const LogIn = () => {
   const allUsers = useContext(MyContex).allUsers;
   const addUser = useContext(MyContex).addUser;
-  const user = useContext(MyContex).user;
   const setUser = useContext(MyContex).setUser;
   const status = useContext(MyContex).status;
   const setStatus = useContext(MyContex).setStatus;
@@ -84,40 +83,44 @@ const LogIn = () => {
 
 
   return (
-    <div>
+    <div id='logIn'>
       {status == "loggedIn"
-        ? <button onClick={logOut}>התנתק</button>
-        : <div>
+        ? <button onClick={logOut} id='logOut'>התנתק</button>
+        : <div id='logInCards'>
+          <div className='logIn-card'>
           <h2>logIn</h2>
-          <form>
-            <span>email</span>
-            <input type="email" placeholder='email' onChange={(e) => updateCurrentUser("email", e.target.value)} value={currentUser.email} />
-            <span>password</span>
-            <input type="password" placeholder='password' onChange={(e) => updateCurrentUser("password", e.target.value)} value={currentUser.password} />
+          <form id='form1'>
+            <span>email</span><br />
+            <input type="email" placeholder='email' onChange={(e) => updateCurrentUser("email", e.target.value)} value={currentUser.email} /><br />
+            <span>password</span><br />
+            <input type="password" placeholder='password' onChange={(e) => updateCurrentUser("password", e.target.value)} value={currentUser.password} /><br />
             <button type='button' onClick={logIn}>logIn</button>
           </form>
+          </div>
+          <div className='logIn-card'>
           <h2>signUp</h2>
-          <form>
-            <span>userName</span>
-            <input type="text" placeholder='userName' onChange={(e) => updateNewUser("userName", e.target.value)} value={newUser.userName} />
-            <span>email</span>
-            <input type="email" placeholder='email' onChange={(e) => updateNewUser("email", e.target.value)} value={newUser.email} />
-            <span>password</span>
-            <input type="password" placeholder='password' onChange={(e) => updateNewUser("password", e.target.value)} value={newUser.password} />
+          <form id='form2'>
+            <span>userName</span><br />
+            <input type="text" placeholder='userName' onChange={(e) => updateNewUser("userName", e.target.value)} value={newUser.userName} /><br />
+            <span>email</span><br />
+            <input type="email" placeholder='email' onChange={(e) => updateNewUser("email", e.target.value)} value={newUser.email} /><br />
+            <span>password</span><br />
+            <input type="password" placeholder='password' onChange={(e) => updateNewUser("password", e.target.value)} value={newUser.password} /><br />
             <button type='button' onClick={signUp}>signUp</button>
           </form>
-          <details>
-          <summary>כניסת מנהל</summary>
+          </div>
+          <div className='logIn-card'>
+          <h2><i class="fa-solid fa-user-secret"></i>כניסת מנהל</h2>
           {status != "manager" ? <div>
             <input type="password" placeholder='הכנס סיסמה לזיהוי'
-              onChange={(e) => updatePassword(e.target.value)} value={managerPassword} />
-            <button onClick={managerLogIn}>התחברות</button>
+              onChange={(e) => updatePassword(e.target.value)} value={managerPassword} /><br/>
+            <button onClick={managerLogIn}>התחברות ומעבר להגדרות</button>
           </div>
             : <div>
               <button onClick={() => navigate('/productManagement')}>מעבר לדף הגדרות מערכת</button>
               <button onClick={() => setStatus("")}>התנתק</button>
             </div>}
-        </details>
+        </div>
         </div>}
       <div>
         

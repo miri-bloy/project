@@ -81,6 +81,7 @@ function App() {
     { id: 49, name: "הדפסת ארנב ושעון", img: "49.jpg", price: 65 },
     { id: 50, name: "הדפסת פנדה חמודה", img: "50.jpg", price: 65 },
     { id: 51, name: "הדפסת כלבלב ופרחים", img: "51.jpg", price: 65 },
+    { id: 52, name: "הדפסת כלבלב ופרחים", img: "52.jpg", price: 65 },
   ]);
 
   const [cartProducts, setCartProducts] = useState([]);

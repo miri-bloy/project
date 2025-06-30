@@ -25,7 +25,7 @@ const AppRoutes = ({ store, allProduct, setAllProduct, cartProducts, addProductT
             <Route path='/homePage' element={<HomePage />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
-            <Route path='/products' element={<Products allProduct={allProduct} addProductToCart={addProductToCart} />} />
+            <Route path='/products' element={<Products allProduct={allProduct} addProductToCart={addProductToCart} setAllProduct={setAllProduct}/>} />
             <Route path='/productDetails/:productId' element={<ProductDetails allProduct={allProduct} addProductToCart={addProductToCart} />} />
             <Route path='/shoppingCart' element={<ShoppingCart cartProducts={cartProducts} removeProductFromCart={removeProductFromCart} plus={plus} minus={minus} />} />
             <Route path='/logIn' element={<LogIn />}/>

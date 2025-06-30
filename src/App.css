@@ -1,3 +1,611 @@
-img{
+:root {
+    --pink: #D95970;
+    --orange: #F58255;
+    --yellow: #F3C660;
+    --green: #79a237;
+    --blue: #45718D;
+    --purple: #493865;
+    --white: #ffffff;
+    --gray: #f0f2f5;
+}
+
+/* עיצובים כלליים לכל הדפים */
+* {
+    direction: rtl;
+    text-align: center;
+    box-sizing: border-box;
+    /* חשוב לשמור על גדלים צפויים עם padding ו-border */
+    font-family: 'Heebo', sans-serif;
+    /* או כל גופן מודרני אחר שבחרת (יש לייבא אותו, לדוגמה מגוגל פונטס) */
+}
+
+body {
+    background-color: var(--gray);
+    /* צבע רקע אפרפר בהיר ורך יותר */
+    margin: 0;
+    padding: 20px;
+    /* מרווח מהקצוות של הדף */
+}
+
+i {
+    margin-left: 10px;
+}
+
+button{
+    cursor: pointer;
+}
+
+/* עיצוב לסרגל הניווט */
+#navbar {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0px;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--blue);
+}
+
+#navbar .link {
+    color: white;
+    text-decoration: none;
+    padding-bottom: 10px;
+    border-bottom: 1px var(--blue) solid;
+    transition: transform 0.2s ease-in-out, border-bottom 0.2s ease-in-out;
+
+}
+
+#navbar .link:hover {
+    border-bottom: 1px white solid;
+}
+
+/* עיצובים לדף הבית */
+#homePage img {
+    width: 30%;
+    border-radius: 50%;
+}
+
+#homePage h1 {
+    color: var(--pink);
+    font-size: 100px;
+    margin-top: 200px;
+    margin-bottom: 10px;
+}
+
+#homePage h3 {
+    color: var(--orange);
+}
+
+/* עיצובים לדף אודות */
+#about h2 {
+    margin: 100px auto 50px auto;
+    color: var(--pink);
+    font-size: xx-large;
+}
+
+#about p {
+    width: 50%;
+    margin: 10px auto;
+    color: var(--blue);
+    font-size: large;
+}
+
+/* עיצובים לדף יצירת קשר */
+#contact-items {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#contact-items .contact-item {
+    width: 20%;
+    color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+#contact-items .contact-item:nth-of-type(1) {
+    background-color: var(--pink);
+}
+
+#contact-items .contact-item:nth-of-type(2) {
+    background-color: var(--orange);
+}
+
+#contact-items .contact-item:nth-of-type(3) {
+    background-color: var(--yellow);
+}
+
+#contact-items .contact-item:nth-of-type(4) {
+    background-color: var(--green);
+}
+
+#contact form {
+    width: 30%;
+    margin: 0 auto;
+}
+
+#contact textarea {
+    width: 100%;
+}
+
+#contact button {
+    width: 100%;
+    background-color: var(--blue);
+    color: var(--white);
+    border: none;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#allMessage {
+    width: 30%;
+    margin: 0 auto;
+}
+
+#contact .message {
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 20px 0;
+    background-color: var(--white);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
+
+#contact .message-mine {
+    margin-right: 0;
+}
+
+#contact .message-their {
+    margin-left: 0;
+}
+
+/* עיצובים לדף כניסה/הרשמה */
+#logIn #logInCards{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+#logInCards .logIn-card{
+    background-color: var(--pink);
+    padding: 50px;
+    margin-top: 100px;
+    border-radius: 50px;
+}
+
+#logInCards .logIn-card:nth-of-type(1) {
+    background-color: var(--pink);
+}
+
+#logInCards .logIn-card:nth-of-type(2) {
+    background-color: var(--yellow);
+}
+
+#logInCards .logIn-card:nth-of-type(3) {
+    background-color: var(--green);
+}
+
+#logInCards button{
+    width: 100%;
+    background-color: var(--white);
+    border: none;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+#logIn #logOut{
+    width: 20%;
+    background-color: var(--white);
+    border: none;
+    margin-top: 50px;
+    padding: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* עיצובים לדף הגדרות מנהל מערכת */
+
+/* עיצובים לדפי עגלה ותשלום */
+#nav{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0px auto;
+    padding: 30px 50px 10px 50px;
+}
+
+#nav button{
+    border: none;
+    background-color: none;
+    cursor: pointer;
+}
+
+#nav i{
+    font-size: xx-large;
+    color: var(--white);
+    background-color: black;
+    border-radius: 50%;
+}
+
+#nav .cart-item{
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+#nav .current{
+    background-color: var(--pink);
+}
+
+#staps button{
+    background-color: var(--white);
+    border-radius: 10px;
+    border: solid 1px gray;
+    margin-top: 10px;
+    padding: 10px;
+    margin:0 5px;
+}
+
+/* עיצוב לדף  המוצרים בעגלה */
+#myOrder{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#allDetails, #allItems{
+    width: 50%;
+    padding: 10px;
+}
+#allItems{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+}
+
+#details{
+    height: 100%;
+}
+
+
+.cart-product,#details{
+    width: 100%;
+    background-color: var(--white);
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cart-product .item-name{
+    width: 300px;
+    text-align: right;
+}
+
+.cart-product img{
     width: 100px;
+}
+
+.cart-product button{
+    background-color: none;
+    border: none;
+    padding: 5px;
+    margin:0 5px;
+}
+
+.cart-product button:nth-of-type(3){
+    background-color: var(--white);
+}
+
+/* עיצובים לדף פרטי משלוח */
+
+#shippingDetails {
+    background-color: var(--gray); 
+  }
+
+  #shippingDetails h2{
+    text-align: center; 
+    color: var(--blue);
+    margin-bottom: 25px;
+    font-size: 2em;
+    margin-top: 0;
+  }
+  
+  #shippingDetails .form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+    width: 50%; 
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  #shippingDetails .inputs {
+    display: flex;
+    gap: 10px; 
+    width: 100%; 
+    flex-wrap: wrap; 
+  }
+  
+  .inputs input {
+    flex-grow: 1; 
+    flex-basis: 0; 
+    min-width: 120px;
+    border: 1px solid var(--blue); 
+    padding: 12px 15px; 
+    background-color: var(--white);
+    border-radius: 8px; 
+    font-size: 1em;
+    text-align: right; 
+    color: #333;
+  }
+  
+  .inputs input::placeholder {
+    color: #999;
+  }
+
+  /* עיצובים לדף פרטי אשראי */
+#paymentDetails {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: var(--gray); 
+  }
+  
+  #paymentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 90%; 
+    max-width: 600px; 
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: right; 
+  }
+  
+  #paymentForm h2 {
+    text-align: center; 
+    color: var(--blue);
+    margin-bottom: 25px;
+    font-size: 2em;
+    margin-top: 0;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 15px; 
+    width: 100%;
+    flex-wrap: wrap; 
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column; 
+    flex-grow: 1; 
+    flex-basis: 0; 
+    min-width: 150px; 
+  }
+  
+  .input-group h6 {
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    color: #666;
+    font-weight: normal; 
+  }
+  
+  .input-group input[type="text"] {
+    width: 100%; 
+    padding: 12px 15px;
+    border: 1px solid var(--blue); 
+    border-radius: 8px;
+    box-sizing: border-box; 
+    font-size: 1.1em;
+    color: #333;
+    text-align: right; 
+    background-color: var(--white);
+  }
+  
+  .input-group input[type="text"]::placeholder {
+    color: #aaa;
+  }
+  
+  .form-row.full-width-input .input-group {
+      flex-basis: 100%; 
+      min-width: unset; 
+  }
+  
+  #paymentForm h4 {
+    text-align: center;
+    color: var(--blue);
+    font-size: 1.5em;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+  
+  #paymentForm h4 b {
+    font-weight: bold;
+    font-size: 1.2em; 
+  }
+  
+  #paymentForm button[type="submit"] {
+    background-color: var(--green);
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 25px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #paymentForm button[type="submit"]:hover {
+    background-color: #6a8c2d; 
+  }
+
+/* עיצובים לדפי מוצרים */
+#search{
+    width: 20%;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 20px;
+    border: solid 1px gray;
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+}
+
+#search input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: right;
+}
+#Products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.product-card {
+    width: 280px;
+    max-width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.product-card .title {
+    padding: 10px 0;
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.product-card p {
+    color: #555;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.product-card button {
+    padding: 12px 25px;
+    background-color: var(--pink);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.product-card button:hover {
+    background-color: var(--orange);
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+/* עיצובים לדף פרטי מוצר ספציפי */
+
+.currentProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    background-color: var(--gray);
+}
+
+.currentProduct .name {
+    background-color: var(--pink);
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.currentProduct h3 {
+    font-size: 2em;
+    color: var(--white);
+    margin: 0;
+    font-weight: 700;
+}
+
+.currentProduct img {
+    max-width: 400px;
+    width: 80%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border: 3px solid #eee;
+    object-fit: contain;
+}
+
+.currentProduct p {
+    font-size: 1.8em;
+    color: var(--blue);
+    font-weight: 800;
+    margin-bottom: 30px;
+    background-color: var(--white);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.currentProduct button {
+    padding: 15px 40px;
+    background-color: var(--yellow);
+    color: var(--white);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.currentProduct button:hover {
+    background-color: var(--green);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }

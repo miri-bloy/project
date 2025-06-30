@@ -13,11 +13,19 @@ const MyOrder = ({ cartProducts, removeProductFromCart, plus, minus, setPrice })
   return (
     <div>
       <h3>my order</h3>
-      {cartProducts.map(p=>
-        <ShoppingCartItem productToShow={p} removeProductFromCart={removeProductFromCart} plus={plus} minus={minus}/>
-      )}
-      <p>כמות מוצרים: <b>{countItems}</b></p>
-      <p>סה"כ לתשלום: <b>{sumPrice}</b></p>
+      <div id='myOrder'>
+        <div id='allItems'>
+          {cartProducts.map(p =>
+            <ShoppingCartItem productToShow={p} removeProductFromCart={removeProductFromCart} plus={plus} minus={minus} />
+          )}
+        </div>
+        <div id='allDetails'>
+          <div id='details'>
+            <p>כמות מוצרים: <b>{countItems}</b></p>
+            <p>סה"כ לתשלום: <b>{sumPrice}</b></p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
