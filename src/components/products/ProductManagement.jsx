@@ -29,7 +29,7 @@ const ProductManagement = ({ allProduct, setAllProduct }) => {
         : p
     );
     setAllProduct(updatedProducts);
-    setProductToUpdate({ name: "", img: "", price: 0 }); // איפוס הסטייט לאחר שמירה
+    setProductToUpdate({ name: "", img: "", price: 0 }); 
   };
 
   const updateProductToAdd = (type, value) => {
@@ -48,26 +48,21 @@ const ProductManagement = ({ allProduct, setAllProduct }) => {
     const newId = allProduct.length > 0 ? allProduct[allProduct.length - 1].id + 1 : 1;
     const fullProductToAdd = { id: newId, ...productToAdd };
     setAllProduct([...allProduct, fullProductToAdd]);
-    setProductToAdd({ name: "", img: "", price: 0 }); // איפוס הסטייט לאחר הוספה
+    setProductToAdd({ name: "", img: "", price: 0 }); 
   };
 
   return (
-    // ה-class הראשי לעוטף הקומפוננטה כולה
     <div className='product-management-container'>
-      <h2 style={{ textAlign: 'center' }}>ניהול מוצרים</h2> {/* כותרת ראשית */}
+      <h2 style={{ textAlign: 'center' }}>ניהול מוצרים</h2>
 
-      {/* מיכל שמכיל את רשימת המוצרים הקיימים */}
       <div className='product-list'>
         {allProduct.map(p =>
-          // כל פריט מוצר בודד
           <div key={p.id} className='product-item'>
             <h3>קוד: {p.id}, שם: {p.name}, מחיר: {p.price} ₪, ניתוב תמונה: {p.img}</h3>
-            {/* עוטף עבור כפתורי הפעולה, כדי לסדר אותם בצורה טובה יותר */}
             <div style={{ display: 'flex', gap: '10px', marginTop: '5px' }}>
               <button type='button' onClick={() => { removeProduct(p.id) }}>מחיקה</button>
               <details>
                 <summary onClick={() => setProductToUpdate(p)}>עריכה</summary>
-                {/* טופס עריכת מוצר */}
                 <form>
                   <input
                     type="text"
@@ -76,7 +71,7 @@ const ProductManagement = ({ allProduct, setAllProduct }) => {
                     value={productToUpdate.name}
                   />
                   <input
-                    type="number" // סוג number למחיר
+                    type="number" 
                     placeholder='מחיר'
                     onChange={(e) => { updateProduct("price", Number(e.target.value)) }}
                     value={productToUpdate.price}
@@ -95,9 +90,7 @@ const ProductManagement = ({ allProduct, setAllProduct }) => {
         )}
       </div>
 
-      {/* כותרת לטופס הוספת מוצר */}
       <h2>טופס הוספת מוצר חדש לאתר</h2>
-      {/* טופס הוספת מוצר חדש */}
       <form className='add-product-form'>
         <input
           type="text"
@@ -106,7 +99,7 @@ const ProductManagement = ({ allProduct, setAllProduct }) => {
           value={productToAdd.name}
         />
         <input
-          type="number" // סוג number למחיר
+          type="number" 
           placeholder='מחיר'
           onChange={(e) => { updateProductToAdd("price", Number(e.target.value)) }}
           value={productToAdd.price}
